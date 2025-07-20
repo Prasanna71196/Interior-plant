@@ -1,0 +1,522 @@
+/* ================================ */
+/*    COMPLETE TRACKING POPUP CSS   */
+/* ================================ */
+
+/* Base Styles */
+* {
+   font-family: 'Volkhov', sans-serif;
+    color: black;
+    font-size: 22px;
+    box-sizing: border-box;
+}
+
+/* Popup Overlay */
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    padding: 20px;
+}
+
+/* Popup Box */
+.popup-box {
+    background: #fff;
+    width: 90%;
+    max-width: 600px;
+    min-height: 500px;
+    max-height: 90vh;
+    border-radius: 15px;
+    padding: 50px 25px 30px 25px;
+    position: relative;
+    text-align: center;
+    animation: fadeIn 0.3s ease-in-out;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background: transparent;
+    font-size: 28px;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background: #f0f0f0;
+    color: #000;
+}
+
+/* Popup Content */
+.popup-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding-top: 20px;
+}
+
+.popup-content .popup-icon {
+    font-size: 48px;
+    margin: 20px 0 15px 0;
+    color: #3E721D;
+    display: block;
+    text-align: center;
+    width: 100%;
+    line-height: 1.2;
+    align-self: center;
+    padding-top: 10px;
+}
+
+.popup-content h2 {
+    font-size: 32px;
+    margin-bottom: 25px;
+    color: #1e3d1c;
+    font-weight: bold;
+    line-height: 1.2;
+}
+
+/* Toggle Buttons */
+.toggle-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.toggle-buttons button {
+    padding: 12px 30px;
+    border: 2px solid #333;
+    border-radius: 10px;
+    background: white;
+    color: #333;
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 18px;
+    transition: all 0.3s ease;
+    min-width: 150px;
+   font-family: 'Volkhov', sans-serif;
+}
+
+.toggle-buttons button:hover {
+    background: #f0f0f0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.toggle-buttons .active {
+    background: #cfe4cd;
+    color: #2d4a2d;
+    border-color: #2d4a2d;
+    box-shadow: 0 4px 12px rgba(45, 74, 45, 0.2);
+}
+
+/* Form Elements */
+.popup-content p {
+    margin-bottom: 15px;
+    font-weight: bold;
+    font-size: 24px;
+    color: #1e3d1c;
+}
+
+.popup-content input {
+    width: 100%;
+    max-width: 400px;
+    padding: 15px;
+    border-radius: 10px;
+    border: 2px solid #333;
+    margin-bottom: 20px;
+    font-size: 16px;
+   font-family: 'Volkhov', sans-serif;
+    transition: border-color 0.3s ease;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.popup-content input:focus {
+    outline: none;
+    border-color: #3E721D;
+    box-shadow: 0 0 0 3px rgba(62, 114, 29, 0.1);
+}
+
+.popup-content input::placeholder {
+    color: #666;
+    font-style: italic;
+}
+
+/* Track Button */
+.track-btn {
+    width: 60%;
+    max-width: 250px;
+    padding: 15px 20px;
+    background-color: #3E721D;
+    color: white;
+    font-weight: bold;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 18px;
+   font-family: 'Volkhov', sans-serif;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(62, 114, 29, 0.3);
+}
+
+.track-btn:hover {
+    background-color: #2d5415;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(62, 114, 29, 0.4);
+}
+
+.track-btn:active {
+    transform: translateY(0);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    from { 
+        opacity: 0; 
+        transform: scale(0.9) translateY(-20px); 
+    }
+    to { 
+        opacity: 1; 
+        transform: scale(1) translateY(0); 
+    }
+}
+
+/* ================================ */
+/*        RESPONSIVE DESIGN         */
+/* ================================ */
+
+/* 📱 MOBILE (320px - 767px) */
+@media (min-width: 320px) and (max-width: 767px) {
+    
+    .popup-overlay {
+        padding: 15px;
+    }
+    
+    .popup-box {
+        width: 95%;
+        max-width: none;
+        min-height: auto;
+        padding: 45px 20px 25px 20px;
+        border-radius: 12px;
+    }
+    
+    .close-btn {
+        top: 12px;
+        right: 15px;
+        font-size: 24px;
+        width: 35px;
+        height: 35px;
+    }
+    
+    .popup-content {
+        gap: 18px;
+        padding-top: 15px;
+    }
+    
+    .popup-content .popup-icon {
+        font-size: 36px;
+        margin: 15px 0 12px 0;
+        padding-top: 8px;
+        line-height: 1.1;
+    }
+    
+    .popup-content h2 {
+        font-size: 26px;
+        margin-bottom: 20px;
+    }
+    
+    .toggle-buttons {
+        flex-direction: column;
+        gap: 12px;
+        margin-bottom: 20px;
+    }
+    
+    .toggle-buttons button {
+        padding: 12px 20px;
+        font-size: 16px;
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .popup-content p {
+        font-size: 20px;
+        margin-bottom: 12px;
+    }
+    
+    .popup-content input {
+        width: 100%;
+        padding: 12px 15px;
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+    
+    .track-btn {
+        width: 100%;
+        max-width: none;
+        padding: 14px 20px;
+        font-size: 16px;
+    }
+}
+
+/* 📱 EXTRA SMALL MOBILE (320px and below) */
+@media (max-width: 319px) {
+    
+    .popup-box {
+        width: 98%;
+        padding: 40px 15px 20px 15px;
+    }
+    
+    .close-btn {
+        top: 10px;
+        right: 12px;
+        font-size: 22px;
+        width: 30px;
+        height: 30px;
+    }
+    
+    .popup-content {
+        padding-top: 12px;
+    }
+    
+    .popup-content .popup-icon {
+        font-size: 32px;
+        margin: 12px 0 10px 0;
+        padding-top: 6px;
+    }
+    
+    .popup-content h2 {
+        font-size: 22px;
+        margin-bottom: 18px;
+    }
+    
+    .toggle-buttons button {
+        padding: 10px 16px;
+        font-size: 15px;
+    }
+    
+    .popup-content p {
+        font-size: 18px;
+    }
+    
+    .popup-content input {
+        padding: 10px 12px;
+        font-size: 14px;
+    }
+    
+    .track-btn {
+        padding: 12px 18px;
+        font-size: 15px;
+    }
+}
+
+/* 🔵 TABLET (768px - 1280px) */
+@media (min-width: 768px) and (max-width: 1280px) {
+    
+    .popup-box {
+        width: 80%;
+        max-width: 500px;
+        padding: 48px 22px 28px 22px;
+    }
+    
+    .popup-content {
+        padding-top: 18px;
+    }
+    
+    .popup-content .popup-icon {
+        font-size: 44px;
+        margin: 18px 0 13px 0;
+        padding-top: 9px;
+    }
+    
+    .popup-content h2 {
+        font-size: 30px;
+        margin-bottom: 22px;
+    }
+    
+    .toggle-buttons {
+        gap: 12px;
+        margin-bottom: 22px;
+    }
+    
+    .toggle-buttons button {
+        padding: 11px 25px;
+        font-size: 17px;
+        min-width: 140px;
+    }
+    
+    .popup-content p {
+        font-size: 22px;
+        margin-bottom: 13px;
+    }
+    
+    .popup-content input {
+        padding: 13px;
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+    
+    .track-btn {
+        width: 55%;
+        max-width: 220px;
+        padding: 13px 18px;
+        font-size: 17px;
+    }
+}
+
+/* 🖥️ DESKTOP (1200px - 1919px) */
+@media (min-width: 1200px) and (max-width: 1919px) {
+    
+    .popup-box {
+        width: 90%;
+        max-width: 600px;
+        padding: 50px 25px 30px 25px;
+    }
+    
+    .popup-content {
+        padding-top: 20px;
+    }
+    
+    .popup-content .popup-icon {
+        font-size: 48px;
+        margin: 20px 0 15px 0;
+        padding-top: 10px;
+    }
+    
+    .popup-content h2 {
+        font-size: 32px;
+        margin-bottom: 25px;
+    }
+    
+    .toggle-buttons {
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+    
+    .toggle-buttons button {
+        padding: 12px 30px;
+        font-size: 18px;
+        min-width: 150px;
+    }
+    
+    .popup-content p {
+        font-size: 24px;
+        margin-bottom: 15px;
+    }
+    
+    .popup-content input {
+        padding: 15px;
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .track-btn {
+        width: 60%;
+        max-width: 250px;
+        padding: 15px 20px;
+        font-size: 18px;
+    }
+}
+
+/* 📺 ULTRA-WIDE SCREENS (1920px and above) */
+@media (min-width: 1920px) {
+    
+    .popup-box {
+        max-width: 700px;
+        padding: 55px 30px 35px 30px;
+    }
+    
+    .popup-content {
+        padding-top: 25px;
+    }
+    
+    .popup-content .popup-icon {
+        font-size: 52px;
+        margin: 25px 0 18px 0;
+        padding-top: 12px;
+    }
+    
+    .popup-content h2 {
+        font-size: 36px;
+        margin-bottom: 30px;
+    }
+    
+    .toggle-buttons {
+        gap: 18px;
+        margin-bottom: 30px;
+    }
+    
+    .toggle-buttons button {
+        padding: 14px 35px;
+        font-size: 20px;
+        min-width: 170px;
+    }
+    
+    .popup-content p {
+        font-size: 26px;
+        margin-bottom: 18px;
+    }
+    
+    .popup-content input {
+        padding: 18px;
+        font-size: 18px;
+        margin-bottom: 25px;
+    }
+    
+    .track-btn {
+        width: 50%;
+        max-width: 280px;
+        padding: 18px 25px;
+        font-size: 20px;
+    }
+}
+
+/* Enhanced Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .popup-box,
+    .toggle-buttons button,
+    .track-btn {
+        transition: none;
+        animation: none;
+    }
+    
+    .toggle-buttons button:hover,
+    .track-btn:hover {
+        transform: none;
+    }
+}
+
+/* High Contrast Mode */
+@media (prefers-contrast: high) {
+    .popup-box {
+        border: 3px solid #000;
+    }
+    
+    .toggle-buttons button {
+        border-width: 3px;
+    }
+    
+    .popup-content input {
+        border-width: 3px;
+    }
+}

@@ -1,0 +1,312 @@
+/* ================================ */
+/*   FIXED RESPONSIVE POPUP MODAL   */
+/* ================================ */
+
+/* Base Styles */
+body {
+    margin: 0;
+   font-family: 'Volkhov', sans-serif;
+    background-color: #f5f5f5;
+}
+
+.popup-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+    padding: 10px;
+}
+
+.popup-container {
+    background-color: #fff;
+    width: 95%;
+    max-width: 900px;
+    max-height: 90vh;
+    border-radius: 15px;
+    padding: 30px 25px;
+    position: relative;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+    overflow-y: auto;
+    animation: popupFadeIn 0.3s ease-out;
+}
+
+@keyframes popupFadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+/* Close Button */
+.close-btn {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    font-size: 28px;
+    border: none;
+    background: none;
+    cursor: pointer;
+    color: #888;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 10;
+}
+
+.close-btn:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
+.popup-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    color: #1e3d1c;
+}
+
+.Box {
+    background-color: #bdeaa5;
+    border-radius: 14px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 45px;
+    margin: 20px auto;
+    font-weight: bold;
+    font-size: 16px;
+    color: #2d4c27;
+    text-align: center;
+}
+
+/* Fixed Product Grid */
+.product-grid {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.product-card {
+    background: #fff;
+    border: 2px solid #ddd;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    padding: 16px;
+    text-align: left;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-color: #3E721D;
+}
+
+.product-card img {
+    width: 100%;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 12px;
+}
+
+.product-title {
+    font-size: 16px;
+    color: #1e3d1c;
+    margin: 8px 0;
+    font-weight: 600;
+}
+
+.product-price {
+    font-size: 15px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.star-rating {
+    font-size: 14px;
+    color: #ffc107;
+    margin-bottom: 12px;
+}
+
+button {
+    background-color: #9ccc65;
+    border: none;
+    padding: 10px 20px;
+    font-size: 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    width: 100%;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: #7cb342;
+}
+
+/* ================================ */
+/*        RESPONSIVE BREAKPOINTS    */
+/* ================================ */
+
+/* 📱 MOBILE (320px - 767px) */
+@media (max-width: 767px) {
+    .popup-overlay {
+        padding: 15px;
+    }
+    
+    .popup-container {
+        width: 98%;
+        padding: 20px 15px;
+        max-height: 85vh;
+    }
+    
+    .close-btn {
+        font-size: 24px;
+        top: 10px;
+        right: 15px;
+    }
+    
+    .popup-title {
+        font-size: 22px;
+        margin-bottom: 20px;
+    }
+    
+    .Box {
+        height: 40px;
+        font-size: 14px;
+        margin: 15px auto;
+    }
+    
+    .product-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+        margin-top: 20px;
+    }
+    
+    .product-card {
+        padding: 14px;
+    }
+    
+    .product-card img {
+        height: 160px;
+    }
+    
+    .product-title {
+        font-size: 15px;
+    }
+    
+    .product-price {
+        font-size: 14px;
+    }
+    
+    button {
+        padding: 10px 16px;
+        font-size: 13px;
+    }
+}
+
+/* 📱 EXTRA SMALL MOBILE (320px and below) */
+@media (max-width: 320px) {
+    .popup-container {
+        padding: 15px 12px;
+    }
+    
+    .popup-title {
+        font-size: 20px;
+    }
+    
+    .Box {
+        height: 35px;
+        font-size: 12px;
+    }
+    
+    .product-card {
+        padding: 12px;
+    }
+    
+    .product-card img {
+        height: 140px;
+    }
+    
+    .product-title {
+        font-size: 14px;
+    }
+    
+    button {
+        font-size: 12px;
+    }
+}
+
+/* 🔵 TABLET (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .popup-container {
+        width: 90%;
+        padding: 25px 20px;
+    }
+    
+    .popup-title {
+        font-size: 26px;
+    }
+    
+    .Box {
+        height: 42px;
+        font-size: 15px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+    }
+    
+    .product-card img {
+        height: 130px;
+    }
+}
+
+/* 🖥️ DESKTOP (1024px and above) */
+@media (min-width: 1024px) {
+    .popup-container {
+        width: 90%;
+        max-width: 900px;
+        padding: 30px 25px;
+    }
+    
+    .popup-title {
+        font-size: 28px;
+        margin-bottom: 25px;
+    }
+    
+    .Box {
+        height: 45px;
+        font-size: 16px;
+    }
+    
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+    }
+    
+    .product-card img {
+        height: 140px;
+    }
+}
+
+/* 📺 LARGE DESKTOP (1200px and above) */
+@media (min-width: 1200px) {
+    .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 22px;
+    }
+}
