@@ -4,11 +4,11 @@ fetch("Components/plant-categories.html")
         document.getElementById("category-placeholder").innerHTML = data;
       });
 
-// fetch("Components/menu.html")
-//     .then(res => res.text())
-//     .then(data => {
-//       document.getElementById("menu-placeholder").innerHTML = data;
-//     });
+fetch("Components/menu.html")
+    .then(res => res.text())
+    .then(data => {
+      document.getElementById("menu-placeholder").innerHTML = data;
+    });
 
  fetch("Components/footer.html")
     .then(res => res.text())
